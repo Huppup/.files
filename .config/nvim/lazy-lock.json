@@ -1,0 +1,6 @@
+{
+  "kanagawa": { "branch": "master", "commit": "b4110528b4a12c295efd3ae222882469b2b44d4a" },
+  "lazy.nvim": { "branch": "main", "commit": "d0921f5b9b3d2c5e09618da55a018228edcc4d16" },
+  "nvim-treesitter": { "branch": "master", "commit": "e0d6c7643dc953acc2e817d0cebfc2f1f8c008e1" },
+  "rose-pine": { "branch": "main", "commit": "e10c9c6436556405ec6b187fd459a718f5c55156" }
+}
