@@ -1,6 +1,8 @@
 {
-  "kanagawa": { "branch": "master", "commit": "b4110528b4a12c295efd3ae222882469b2b44d4a" },
-  "lazy.nvim": { "branch": "main", "commit": "d0921f5b9b3d2c5e09618da55a018228edcc4d16" },
-  "nvim-treesitter": { "branch": "master", "commit": "e0d6c7643dc953acc2e817d0cebfc2f1f8c008e1" },
-  "rose-pine": { "branch": "main", "commit": "e10c9c6436556405ec6b187fd459a718f5c55156" }
+  "guvbox": { "branch": "main", "commit": "49d9c0b150ba70efcd831ec7b3cb8ee740067045" },
+  "kanagawa": { "branch": "master", "commit": "ad3dddecd606746374ba4807324a08331dfca23c" },
+  "lazy.nvim": { "branch": "main", "commit": "56ead98e05bb37a4ec28930a54d836d033cf00f2" },
+  "lush": { "branch": "main", "commit": "45a79ec4acb5af783a6a29673a999ce37f00497e" },
+  "nvim-treesitter": { "branch": "master", "commit": "8a74ac9aead72ef7a870908f1517b48f2bb25ac7" },
+  "rose-pine": { "branch": "main", "commit": "07a887a7bef4aacea8c7caebaf8cbf808cdc7a8e" }
 }

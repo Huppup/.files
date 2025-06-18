@@ -11,4 +11,12 @@ return {
         build=":TSUpdate",
         config=require("plugins.config.treesitter"),
     },
+    {
+        "ellisonleao/gruvbox.nvim",
+        name = "guvbox",
+    },
+    {
+        "rktjmp/lush.nvim",
+        name = "lush",
+    },
 }

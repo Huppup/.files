@@ -1,0 +1,425 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, MonaspiceKr Nerd Font, Roboto, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: rgba(22, 18, 20, 0);
+    /*border-bottom: 3px solid rgba(21, 19, 21, 0);*/
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.empty {
+    background-color: transparent;
+}
+/*
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+*/
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+#workspaces button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 0px rgba(255,233,72,1);
+    /* Avoid rounded borders under each button name */
+    border: 2px solid rgba(235, 213, 52,1);
+    border-radius: 20px;
+    font-size: 4px;
+    background-color: rgba(255,233,72,1);
+    color: #000000;
+    margin: 5px;
+    animation-name: contracting;
+    animation-duration: 0.25s;
+    animation-timing-function: steps(100);
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+    padding: 0 4px;
+}
+
+#workspaces button.active {
+    box-shadow: inset 0 0px rgba(255,233,72,1);
+    border: 2px solid rgba(235, 213, 52,1);
+    border-radius: 20px;
+    font-size: 4px;
+    background-color: rgba(255,233,72,1);
+    color: #000000;
+    margin: 5px;
+    animation-name: expanding;
+    animation-duration: 0.25s;
+    animation-timing-function: steps(100);
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+    padding: 0 12px;
+}
+#workspaces button:not(.empty) {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 0px rgba(255,233,72,1);
+    /* Avoid rounded borders under each button name */
+    border: 2px solid rgba(63, 225, 110,1);
+    border-radius: 20px;
+    font-size: 4px;
+    background-color: rgba(83,245,130,1);
+    color: #000000;
+    margin: 5px;
+    animation-name: contracting;
+    animation-duration: 0.25s;
+    animation-timing-function: steps(100);
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+    padding: 0 4px;
+}
+#workspaces button:not(.empty).active {
+    box-shadow: inset 0 0px rgba(255,233,72,1);
+    border: 2px solid rgba(63, 225, 110,1);
+    border-radius: 20px;
+    font-size: 4px;
+    background-color: rgba(83,245,130,1);
+    color: #000000;
+    margin: 5px;
+    animation-name: expanding;
+    animation-duration: 0.25s;
+    animation-timing-function: steps(100);
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+    padding: 0 12px;
+}
+#workspaces button:hover {
+    background: rgba(255, 233, 72, 1);
+    animation-name: bout_to_press;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#workspaces button:not(.empty):hover {
+    background: rgba(83, 245, 130, 1);
+    animation-name: not_empty_press;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+#workspaces {
+    font-size: 4px;
+    background-color: rgba(40,40,40,1);
+    border-radius: 0px 0px 20px 20px;
+    border: 2px solid rgba(40,40,40,1);
+}
+
+
+#mode {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#window,
+#temperature,
+#backlight,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 0 10px;
+    color: #999999;
+}
+#network {
+    padding: 0 10px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+.modules-right {
+    background: rgba(40,40,40,1);
+    border: 4px solid rgba(40,40,40,1);
+    border-radius: 0px 0px 0px 20px;
+}
+.modules-left {
+    background: rgba(40,40,40,1);
+    border: 4px solid rgba(40,40,40,1);
+    border-radius: 0px 0px 20px 0px;
+}
+
+#clock {
+    background-color: rgba(0,0,0,0);/*#ed5110;*/
+    font-weight: bold;
+    color: #999999;
+}
+
+#battery {
+    background-color: rgba(237,99,19,0); /*#ed6313;*/
+    font-weight: bold;
+    /*color: #dddddd;*/
+    color: #999999;
+}
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+   /* color: linear-gradient(t, #ffffff, #ffdddd);*/
+}
+#battery.critical:not(.charging) {
+    color: #ffffff;
+}
+/*
+#batbar {
+    background: rgba(50,50,50,1);
+}
+*/
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+@keyframes bout_to_press {
+    to {
+        background-color: rgba(235, 213, 52,1);
+        border-radius: 12px;
+    }
+}
+@keyframes not_empty_press {
+    to {
+        background-color: rgba(63, 225, 110,1);
+        border-radius: 12px;
+    }
+}
+@keyframes expanding {
+    to {
+        padding: 0 4px;
+    }
+}
+@keyframes contracting {
+    to {
+        padding: 0 12px;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+    color: #000000;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background-color: rgba(22,18,20,0);/*#f2c613;*/
+    /*border: 2px solid rbga(21,19,21,0.9);*/
+    font-weight: bold;
+    /*color: #555555;*/
+    color: #999999;
+}
+
+#memory {
+    background-color: rgba(237,165,21,0);/*#eda515;*/
+    font-weight: bold;
+    color: #999999;
+}
+
+#disk {
+    background-color: #964B00;
+}
+
+#backlight {
+    background-color: rgba(237,115,21,0);/*#ed7315;*/
+    font-weight: bold;
+    /*color: #bbbbbb;*/
+    color: #999999;
+}
+
+#network {
+    background-color: rgba(242,212,19,0);/*#f2d413;*/
+    font-weight: bold;
+   /* color: #333333;*/
+    color: #999999;
+}
+#network.disconnected {
+    color: #ffffff;
+}
+#pulseaudio {
+    background-color: rgba(242,227,19,0);/* #f2e313;*/
+    font-weight: bold;
+   /* color: #111111;*/
+    color: #999999;
+}
+#pulseaudio.muted {
+    color: #ffffff;
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+#temperature {
+    background-color: rgba(0,0,0,0);/*#f0932b;*/
+    font-weight: bold;
+    /*color: #999999;*/
+    color: #999999;
+}
+#temperature.critical {
+    color: #ffffff;
+}
+#tray {
+    background-color: #2980b9;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+/*
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
+*/
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+    background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}
