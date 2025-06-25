@@ -5,11 +5,17 @@
 }
 
 window#waybar {
-    background-color: rgba(22, 18, 20, 0);
+    background-image: linear-gradient(to right, rgba(40, 40, 40, 0), rgba(40,40,40,1),rgba(40,40,40,1));
     /*border-bottom: 3px solid rgba(21, 19, 21, 0);*/
     color: #ffffff;
+    background-color: rgba(40,40,40,0);
     transition-property: background-color;
     transition-duration: .5s;
+    animation-name: background_appear;
+    animation-duration: 25s;
+    animation-timing-function: steps(400);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 window#waybar.hidden {
@@ -266,6 +272,11 @@ window#waybar.chromium {
 @keyframes contracting {
     to {
         padding: 0 12px;
+    }
+}
+@keyframes background_appear {
+    to {
+    background-image: linear-gradient(to right, rgba(40, 40, 40, 1), rgba(40,40,40,1),rgba(40,40,40,0));
     }
 }
 
