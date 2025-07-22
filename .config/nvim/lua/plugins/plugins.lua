@@ -6,6 +6,11 @@ return {
         config=require("plugins.config.kanagawa"),
     },
     {
+        "neanias/everforest-nvim",
+        name = "everforest",
+        config=require("plugins.config.everforest"),
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         lazy=false,
         build=":TSUpdate",

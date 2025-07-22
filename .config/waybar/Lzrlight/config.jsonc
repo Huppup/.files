@@ -53,9 +53,9 @@
             "8": " ",
             "9": " ",
             "10": " ",
-            "urgent": "!",
-            "focused": " ",
-            "default": " "
+            "urgent": "",
+            "focused": "",
+            "default": ""
         }
     },
     "keyboard-state": {

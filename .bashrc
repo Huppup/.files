@@ -22,13 +22,12 @@ shuffle() {
     rm ~/*.ppm
 }
 roll() {
-    ~/Pictures/CodeWall/a.out
+    ~/Pictures/AnimateWall/a.out
     mogrify -format jpg ~/*.ppm
     magick -delay 5 -loop 0 *.jpg back.gif
     rm ~/*.jpg
     rm ~/*.ppm
-    mv back.gif ~/Pictures/CodeWall/
-
+    mv back.gif ~/Pictures/AnimateWall/
 }
 refresh() {
     killall hyprpaper
