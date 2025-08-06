@@ -1,8 +1,8 @@
-format = """$os[◣](fg:col6 bg:col5)\
+format = """$os[](fg:col6 bg:col5)\
 $hostname[◣](fg:col5 bg:col4)\
-$username[◣](fg:col4 bg:col3)\
+$username[](fg:col4 bg:col3)\
 $directory[◣](fg:col3 bg:col2)\
-[ 󰊢 ](fg:text2 bg:col2)$git_branch$git_status[◣](fg:col2 bg:col1)\
+[ 󰊢 ](fg:text2 bg:col2)$git_branch$git_status[](fg:col2 bg:col1)\
 $shell[◣](fg:col1)\
 $sudo\
 $fill\
