@@ -33,7 +33,17 @@ refresh() {
     killall hyprpaper
     hyprpaper
 }
-Hypr() {
-    shuffle
-    Hyprland
+wofi_reconfigure() {
+    ~/.config/wofi/a.out
+    mv ~/config ~/.config/wofi/config
 }
+# Hypr() {
+#     shuffle
+#     Hyprland
+# }
+
+
+
+# Start Starship:
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init bash)"

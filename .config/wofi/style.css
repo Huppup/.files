@@ -1,0 +1,54 @@
+#window {
+    background-color: rgba(34,34,34,0);
+    font-family: FontAwesome, FantasqueSansM Nerd Font, Roboto, sans-serif;
+    font-size: 14px;
+}
+#outer-box {
+    background-color: rgba(34,34,34,0.8);
+    border-radius: 30px;
+    padding-bottom: 20px;
+    background-image: url("DarkBlur.png");
+}
+#inner-box {
+    margin: 20px;
+    margin-top: 0px;
+}
+#entry {
+    border-radius: 10px;
+}
+#entry:selected {
+    background-image: linear-gradient(135deg, #fff883, #f29b14);
+    background-color: #fff883;
+    color: #222222;
+}
+#entry:unselected {
+    color: #fff883;
+}
+#expander-box {
+    background-color: rgba(45,45,45,0.9);
+    border-radius: 10px;
+    #entry:selected {
+        color: #2d2d2d;
+    }
+}
+#selected {
+    border: 0px solid #000000;
+}   
+#text {
+    color: #fff883;
+    text-align: center;
+}
+#text:selected {
+    color: #222222;
+}
+#input {
+    color: #f29b14;
+    background-color: rgba(34,34,34,1);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin: 10px;
+    border: 0px solid rgba(255, 248, 99,1);
+}
+#input:selected {
+        border: 0px solid rgba(255,248,99,1);
+}

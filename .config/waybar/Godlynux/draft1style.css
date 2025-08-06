@@ -1,0 +1,464 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, MonaspiceKr Nerd Font, Roboto, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color:  rgba(0,0,0,0);
+    /*border-bottom: 3px solid rgba(21, 19, 21, 0);*/
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.empty {
+    background-color: transparent;
+}
+/*
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+*/
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+#workspaces button {
+    border: 2px solid  #d26e0a ;
+    border-radius: 20px;
+    background-image: radial-gradient(#8c3600 ,#d26e0a);
+    margin: 5px;
+    /* background-color: rgba(255,233,72,0); */
+    /* animation-name: contracting; */
+    /* animation-duration: 0.25s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: 1; */
+    /* animation-direction: reverse; */
+    padding: 0 4px;
+}
+
+#workspaces button.active {
+    background-color: rgba(255,233,72,1);
+    background-image: radial-gradient(at top right,#fff883,#f29b14);
+    animation-name: shine_button;
+    animation-duration: 5s;
+    animation-timing-function: steps(100);
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    padding: 0 4px;
+}
+#workspaces button:not(.empty) {
+    background-color: #f29b14;
+    background-image: radial-gradient(at top right,#d26e0a, #f29b14);
+    /* animation-name: contracting; */
+    /* animation-duration: 0.25s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: 1; */
+    /* animation-direction: reverse; */
+    padding: 0 4px;
+}
+#workspaces button:not(.empty).active {
+    background-color: #fff883;
+    background-image: radial-gradient(at 100% -100%,#fff883,#f29b14);
+    animation-name: shine_button;
+    animation-duration: 5s;
+    animation-timing-function: steps(100);
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+#workspaces button:not(.empty):hover {
+    box-shadow: inset 0 0px #ffffff;
+    background-image: radial-gradient(#fff883,#f29b14);
+    /* animation-name: not_empty_press; */
+    /* animation-duration: 0.5s; */
+    /* animation-timing-function: steps(12); */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
+}
+#workspaces button:hover {
+    box-shadow: inset 0 0px #ffffff;
+    background-image: radial-gradient(#fff883,#f29b14);
+    /* animation-name: bout_to_press; */
+    /* animation-duration: 0.5s; */
+    /* animation-timing-function: steps(12); */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
+}
+
+#workspaces button.urgent {
+    background-color: rgba(255,90,70,1);
+    /* animation-name: contracting; */
+    /* animation-duration: 0.25s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: 1; */
+    /* animation-direction: reverse; */
+    padding: 0 4px;
+}
+#workspaces button.urgent.active {
+    background-color: rgba(255,90,70,1);
+    /* animation-name: expanding; */
+    /* animation-duration: 0.25s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: 1; */
+    /* animation-direction: reverse; */
+    padding: 0 4px;
+}
+#workspaces button.urgent:hover {
+    background: rgba(83, 245, 130, 1);
+    /* animation-name: not_empty_press; */
+    /* animation-duration: 0.5s; */
+    /* animation-timing-function: steps(12); */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
+}
+#workspaces {
+    font-size: 4px;
+    background-color:    #8c3600  ;
+    border-radius: 0px 0px 20px 20px;
+    border: 2px solid    #632600 ;
+    /* animation-name: shine; */
+    /* animation-duration: 5s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: normal; */
+}
+
+
+#mode {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#window,
+#temperature,
+#backlight,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 0 10px;
+    color: #999999;
+}
+#network {
+    padding: 0 10px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+.modules-right {
+    background: rgba(40,40,40,1);
+    border: 4px solid rgba(40,40,40,1);
+    border-radius: 0px 0px 0px 20px;
+}
+.modules-left {
+    background: rgba(40,40,40,1);
+    border: 4px solid rgba(40,40,40,1);
+    border-radius: 0px 0px 20px 0px;
+}
+
+#clock {
+    background-color: rgba(0,0,0,0);/*#ed5110;*/
+    font-weight: bold;
+    color: #999999;
+}
+
+#battery {
+    background-color: rgba(237,99,19,0); /*#ed6313;*/
+    font-weight: bold;
+    /*color: #dddddd;*/
+    color: #999999;
+}
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+   /* color: linear-gradient(t, #ffffff, #ffdddd);*/
+}
+#battery.critical:not(.charging) {
+    color: #ffffff;
+}
+/*
+#batbar {
+    background: rgba(50,50,50,1);
+}
+*/
+
+@keyframes shine_button {
+    5% {
+        background-image: radial-gradient(at 90% -100%, #fff883,#f29b14);
+    }
+    10% { 
+        background-image: radial-gradient(at -100% -100%, #fff883,  #f29b14);
+    }
+    30% {
+        background-image: radial-gradient(at -100% 100%, #fff883,  #f29b14);
+    }
+    40% {
+        background-image: linear-gradient(135deg, #fff883,#f29b14, #f29b14);
+    }
+    60% {
+        background-image: linear-gradient(135deg, #f29b14, #fff883 20%, #f29b14 80%);
+    }
+    80% {
+        background-image: linear-gradient(135deg, #f29b14,#f29b14, #fff883);
+    }
+    90% {
+        background-image: radial-gradient(at 100% -100%, #fff883,  #f29b14);
+    }
+}
+@keyframes shine {
+    5% {
+        background-image: linear-gradient(135deg, #8c3600 0%, #f29b14 5%, #8c3600 95%);
+    }
+    30% {
+        background-image: linear-gradient(135deg, #8c3600 95%, #f29b14 5%, #8c3600 0%);
+    }
+    /* 35% { */
+    /*     background-image: linear-gradient(#8c3600,#8c3600); */
+    /* } */
+}
+@keyframes melt {
+    30% {
+        background-image: radial-gradient(#fff883, #f29b14);
+    }
+    55% {
+        background-image: linear-gradient(#f29b14, #fff883, #f29b14);
+    }
+    75% {
+        background-image: radial-gradient(at -100% 100%, #fff883, #f29b14,#fff883);
+    }
+    85% {
+        background-image: radial-gradient(at -100% -100%, #fff883, #f29b14,#fff883 20%);
+    }
+    100% {
+        background-image: radial-gradient(at -100% -100%, #fff883, #f29b14);
+    }
+}
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #2980b9;
+    color: #ffffff;
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: #2ecc71;
+    color: #000000;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background-color: rgba(22,18,20,0);/*#f2c613;*/
+    /*border: 2px solid rbga(21,19,21,0.9);*/
+    font-weight: bold;
+    /*color: #555555;*/
+    color: #999999;
+}
+
+#memory {
+    background-color: rgba(237,165,21,0);/*#eda515;*/
+    font-weight: bold;
+    color: #999999;
+}
+
+#disk {
+    background-color: #964B00;
+}
+
+#backlight {
+    background-color: rgba(237,115,21,0);/*#ed7315;*/
+    font-weight: bold;
+    /*color: #bbbbbb;*/
+    color: #999999;
+}
+
+#network {
+    background-color: rgba(242,212,19,0);/*#f2d413;*/
+    font-weight: bold;
+   /* color: #333333;*/
+    color: #999999;
+}
+#network.disconnected {
+    color: #ffffff;
+}
+#pulseaudio {
+    background-color: rgba(242,227,19,0);/* #f2e313;*/
+    font-weight: bold;
+   /* color: #111111;*/
+    color: #999999;
+}
+#pulseaudio.muted {
+    color: #ffffff;
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+#temperature {
+    background-color: rgba(0,0,0,0);/*#f0932b;*/
+    font-weight: bold;
+    /*color: #999999;*/
+    color: #999999;
+}
+#temperature.critical {
+    color: #ffffff;
+}
+#tray {
+    background-image: radial-gradient(at top right,#d26e0a, #f29b14);
+    /* background-color: #f29b14; */
+    border-radius: 20px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+/*
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
+*/
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+    background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}

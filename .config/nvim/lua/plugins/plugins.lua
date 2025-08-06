@@ -16,6 +16,16 @@ return {
         build=":TSUpdate",
         config=require("plugins.config.treesitter"),
     },
+    { "qaptoR-nvim/chocolatier.nvim", priority = 1000 , config = true, opts = ...},
+    {
+        "norcalli/nvim-colorizer.lua",
+        name = "nvim-colorizer",
+        config= function() require("colorizer").setup() end
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
     {
         "ellisonleao/gruvbox.nvim",
         name = "guvbox",
