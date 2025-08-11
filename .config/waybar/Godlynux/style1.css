@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, FantasqueSansM Nerd Font, Roboto, sans-serif;
-    font-size: 12px;
+    font-family: FontAwesome, MonaspiceKr Nerd Font, Roboto, sans-serif;
+    font-size: 13px;
 }
 
 window#waybar {
@@ -34,24 +34,17 @@ window#waybar.chromium {
     border: none;
 }
 
-/* #custom-workspaces_left { */
-/*     margin: 4px; */
-/*     background:  rgba(140,54,0,0.4) ; */
-/*     border-radius: 10px; */
-/* } */
-/* #custom-workspaces_left button { */
-/*     border: 2px solid  #d26e0a ; */
-/*     border-radius: 5px; */
-/*     background-image: radial-gradient(#8c3600 ,#d26e0a); */
-/*     margin: 4px; */
-/*     padding: 0 4px; */
-/* } */
-
 #workspaces button {
     border: 2px solid  #d26e0a ;
-    border-radius: 9px;
+    border-radius: 20px;
     background-image: radial-gradient(#8c3600 ,#d26e0a);
-    margin: 4px;
+    margin: 5px;
+    /* background-color: rgba(255,233,72,0); */
+    /* animation-name: contracting; */
+    /* animation-duration: 0.25s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: 1; */
+    /* animation-direction: reverse; */
     padding: 0 4px;
 }
 
@@ -63,10 +56,17 @@ window#waybar.chromium {
     animation-timing-function: steps(100);
     animation-iteration-count: infinite;
     animation-direction: normal;
+    padding: 0 4px;
 }
 #workspaces button:not(.empty) {
     background-color: #f29b14;
     background-image: radial-gradient(at top right,#d26e0a, #f29b14);
+    /* animation-name: contracting; */
+    /* animation-duration: 0.25s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: 1; */
+    /* animation-direction: reverse; */
+    padding: 0 4px;
 }
 #workspaces button:not(.empty).active {
     background-color: #fff883;
@@ -80,33 +80,61 @@ window#waybar.chromium {
 #workspaces button:not(.empty):hover {
     box-shadow: inset 0 0px #ffffff;
     background-image: radial-gradient(#fff883,#f29b14);
+    /* animation-name: not_empty_press; */
+    /* animation-duration: 0.5s; */
+    /* animation-timing-function: steps(12); */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
 }
 #workspaces button:hover {
     box-shadow: inset 0 0px #ffffff;
     background-image: radial-gradient(#fff883,#f29b14);
+    /* animation-name: bout_to_press; */
+    /* animation-duration: 0.5s; */
+    /* animation-timing-function: steps(12); */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
 }
 
-#workspaces.left {
-    margin: 4px 0px 4px 4px;
-    background:  rgba(140,54,0,0.5) ;
-    border-radius: 10px 0px 0px 10px;
+#workspaces button.urgent {
+    background-color: rgba(255,90,70,1);
+    /* animation-name: contracting; */
+    /* animation-duration: 0.25s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: 1; */
+    /* animation-direction: reverse; */
+    padding: 0 4px;
 }
-#workspaces.right {
-    margin: 4px 4px 4px 0px;
-    background:  rgba(140,54,0,0.5) ;
-    border-radius: 0px 10px 10px 0px;
+#workspaces button.urgent.active {
+    background-color: rgba(255,90,70,1);
+    /* animation-name: expanding; */
+    /* animation-duration: 0.25s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: 1; */
+    /* animation-direction: reverse; */
+    padding: 0 4px;
 }
-#custom-arch-arch {
-    font-size: 30px;
-    margin: 0px;
-    padding: 0 15px 0 20px;
-    color: #cccccc; 
-    background-image: linear-gradient(315deg,#632600,#8c3600);
-    border-radius:3px;
+#workspaces button.urgent:hover {
+    background: rgba(83, 245, 130, 1);
+    /* animation-name: not_empty_press; */
+    /* animation-duration: 0.5s; */
+    /* animation-timing-function: steps(12); */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
 }
-#custom-arch-arch:hover {
-    background-image: linear-gradient(135deg,#632600,#8c3600);
+#workspaces {
+    font-size: 4px;
+    background-color:    #8c3600  ;
+    border-radius: 0px 0px 20px 20px;
+    border: 2px solid    #632600;
+    border-top: 0px solid #8c3600;
+    /* animation-name: shine; */
+    /* animation-duration: 5s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: normal; */
 }
+
 
 #mode {
     background-color: #64727D;
@@ -114,91 +142,80 @@ window#waybar.chromium {
 }
 
 #clock,
-#clock.calendar,
 #battery,
 #cpu,
 #memory,
 #disk,
 #window,
 #temperature,
+#backlight,
 #pulseaudio,
 #wireplumber,
 #custom-media,
-#network,
 #tray,
 #mode,
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 18px;
+    padding: 0 10px;
+    color: #999999;
 }
-#backlight {
-    padding: 0 0 0 18px;
-}
-#backlight-slider slider {
-    min-height: 8px;
-    min-width: 8px;
-    border-radius: 5px;
-    background: #d26e0a;
-    background-image: radial-gradient(at top right,#d26e0a, #f29b14);
-    border: solid 2px #d26e0a;
-    padding: 0 2px;
-    box-shadow: none;
-}
-#backlight-slider trough {
-    min-height: 4px;
-    min-width: 100px;
-    border-radius: 5px;
-    background: #222222;
-    border: 0px solid #000000;
-}
-#backlight-slider highlight {
-    min-width: 10px;
-    border-radius: 5px;
-    background: #f29b14;
-    border: 0px solid #000000;
+#network {
+    padding: 0 10px;
 }
 
-.modules-left,
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
 .modules-right {
-    margin: 4px;
-    background:  rgba(140,54,0,0.5) ;
-    border-radius: 10px;
+    background:  #8c3600 ;
+    border: 2px solid #632600;
+    border-right: 2px solid #8c3600;
+    border-top: 0px solid #8c3600;
+    border-radius: 0px 0px 0px 20px;
     color: #fff883;
 }
-#battery,
+.modules-left {
+    background: #8c3600 ;
+    border: 2px solid #632600 ;
+    border-left: 2px solid #8c3600;
+    border-top: 0px solid #8c3600;
+    border-radius: 0px 0px 20px 0px;
+    color: #fff883;
+}
+
 #clock {
-    background-color: #fdd864;
-    border: 2px solid #ecc753;
+    background-color: rgba(0,0,0,0);/*#ed5110;*/
     font-weight: bold;
-    color: #222222;
-    margin: 6px;
-    border-radius: 4px;
-}
-#battery:hover,
-#clock:hover {
-    background-color: #ecc753;
-    border: 2px solid #ecc753;
-    font-weight: bold;
-    color: #222222;
-    margin: 6px;
-    border-radius: 4px;
-}
-#clock.calendar {
-    background: rgba(0,0,0,0);
     color: #f29b14;
-    padding: 0 10px;
-    border: 0px solid #000000;
 }
 
-/* #battery.charging, #battery.plugged { */
-/*     color: #fff883; */
-/* } */
-/* #battery.critical:not(.charging) { */
-/*     color: #fff883; */
-/* } */
-
+#battery {
+    background-color: rgba(237,99,19,0); /*#ed6313;*/
+    font-weight: bold;
+    /*color: #dddddd;*/
+    color: #f29b14;
+}
+#battery.charging, #battery.plugged {
+    color: #fff883;
+    /* animation-name: shine_text; */
+    /* animation-duration: 5s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: normal; */
+   /* color: linear-gradient(t, #ffffff, #ffdddd);*/
+}
+#battery.critical:not(.charging) {
+    color: #fff883;
+}
 /*
 #batbar {
     background: rgba(50,50,50,1);

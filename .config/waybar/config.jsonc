@@ -3,37 +3,78 @@
     // "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 20, // Waybar height (to be removed for auto height)
-    "width": 1280, // Waybar width
-    "spacing": 10, // Gaps between modules (4px)
+    "width": 1260, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "clock",
-        "pulseaudio",
-        "backlight",
+        "group/left_drawer",
+        // "clock",
+        // "pulseaudio",
+        // "backlight",
         "hyprland/submap",
         "sway/scratchpad",
         "custom/media"//,
        // "hyprland/window"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "hyprland/workspaces#left",
+        "custom/arch-arch",
+        "hyprland/workspaces#right"
     ],
     "modules-right": [
         "mpd",
        // "idle_inhibitor",
-        "power-profiles-daemon",
-        "network",
-        "cpu",
        // "memory",
-        "temperature",
+        // "power-profiles-daemon",
+        // "network",
+        // "cpu",
+        // "temperature",
+        "group/right_drawer",
         "keyboard-state",
-        "sway/language",
-        "battery",
-        "battery#bat2",
+        "sway/language"
+        // "battery",
+        // "battery#bat2"
         // "tray",
-        "batbar",
+        //"batbar",
     ],
     // Modules configuration
+    //Central decoration with the arch logo. Button that hides and unhides waybar
+    "group/left_drawer": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "left_drawer_cabinet",
+            "transition-left-to-right": true,
+            "click-to-reveal": true,
+        },
+        "modules": [
+            "clock", // First element is the "group leader" and won't ever be hidden
+            // "clock#calendar",
+            "pulseaudio",
+            "backlight",
+            "backlight/slider",
+        ]
+    },
+    "group/right_drawer": {
+       "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "right_drawer_cabinet",
+            "transition-left-to-right": false,
+            "click-to-reveal": true,
+        },
+        "modules": [
+            "battery", // First element is the "group leader" and won't ever be hidden
+            "network",
+            "cpu",
+            "temperature",
+        ] 
+    },
+    "custom/arch-arch": {
+        "format": "󰣇 ",
+        "tooltip": false, 
+        "on-click": "hyprlock"
+    },
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -57,6 +98,56 @@
             "focused": " ",
             "default": " "
         }
+    },
+    "hyprland/workspaces#left": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "persistent-only": true,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "1": " ",
+            "2": " ",
+            "3": " ",
+            "4": " ",
+            "5": " ",
+            "urgent": "!",
+            "focused": " ",
+            "default": " "
+        },
+        "igore-workspaces": ["6","7","8","9","10"]
+    },
+    "hyprland/workspaces#right": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "persistent-only": true,
+        "persistent-workspaces": {
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "1": " ",
+            "2": " ",
+            "3": " ",
+            "4": " ",
+            "5": " ",
+            "urgent": "!",
+            "focused": " ",
+            "default": " "
+        },
+        "igore-workspaces": ["1","2","3","4","5"]
     },
     "keyboard-state": {
         "numlock": true,
@@ -117,7 +208,12 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        // "format-alt": "{:%Y-%m-%d}"
+        "tooltip": false
+    },
+    "clock#calendar": {
+        "format": "{:%m/%d/%Y}",
+        "tooltip": false
     },
     "cpu": {
         "format": "{usage}% ",
@@ -136,8 +232,13 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format": " {percent}%",
+        // "format-icons": ["{:: ::}","{█::::}","{██:::}","{███::}","{████:}","{█████}"]
+    },
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
     },
     "battery": {
         "states": {
@@ -145,17 +246,15 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% {icon}",
-        "format-plugged": "{capacity}% {icon}",
-        "format-alt": "{time} {icon}",
+        "format": " {capacity}% {icon}",
+        "format-full": " {capacity}% {icon}",
+        "format-charging": "󰚥 {capacity}% {icon}",
+        "format-plugged": "󰚥 {capacity}% {icon}",
+        // "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
+        // "format-icons": ["", "", "", "", ""]
+        "format-icons": [" ","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰂄"]
     },
     "batbar": {
         "format": "{capacity}%",
@@ -183,23 +282,24 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-bluetooth-muted": "󰖁 {icon} {format_source}",
+        "format-muted": "󰖁 0% {format_source}",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": " ",
+            "headset": "  ",
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
     },
+            // "default": ["{:: ::}","{█::::}","{██:::}","{███::}","{████:}","{█████}"]
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",

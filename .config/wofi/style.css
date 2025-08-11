@@ -4,7 +4,7 @@
     font-size: 14px;
 }
 #outer-box {
-    background-color: rgba(34,34,34,0.8);
+    background-color: rgba(68,51,34,0.8);
     border-radius: 30px;
     padding-bottom: 20px;
     background-image: url("DarkBlur.png");
@@ -43,12 +43,12 @@
 }
 #input {
     color: #f29b14;
-    background-color: rgba(34,34,34,1);
+    background-color: rgba(48,31,14,1);
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     margin: 10px;
     border: 0px solid rgba(255, 248, 99,1);
 }
 #input:selected {
-        border: 0px solid rgba(255,248,99,1);
+    border: 0px solid rgba(255,248,99,1);
 }
