@@ -3,8 +3,7 @@
     font-family: FontAwesome, FantasqueSansM Nerd Font, Roboto, sans-serif;
     font-size: 12px;
 }
-
-window#waybar {
+window#waybar.topbar_Godlynux {
     background-color:  rgba(0,0,0,0);
     /*border-bottom: 3px solid rgba(21, 19, 21, 0);*/
     color: #ffffff;
@@ -53,16 +52,27 @@ window#waybar.chromium {
     background-image: radial-gradient(#8c3600 ,#d26e0a);
     margin: 4px;
     padding: 0 4px;
+    transition: background-image 1s;
 }
 
 #workspaces button.active {
     background-color: rgba(255,233,72,1);
     background-image: radial-gradient(at top right,#fff883,#f29b14);
+
+    transition: background-image 1s;
+
     animation-name: shine_button;
     animation-duration: 5s;
     animation-timing-function: steps(100);
     animation-iteration-count: infinite;
     animation-direction: normal;
+
+    /* animation-name: dot_solid; */
+    /* animation-duration: 5s; */
+    /* animation-timing-function: steps(100); */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: normal; */
+
 }
 #workspaces button:not(.empty) {
     background-color: #f29b14;
@@ -160,8 +170,20 @@ window#waybar.chromium {
     border: 0px solid #000000;
 }
 
-.modules-left,
-.modules-right {
+/* .modules-left, */
+/* .modules-right { */
+/*     margin: 4px; */
+/*     background:  rgba(140,54,0,0.5) ; */
+/*     border-radius: 10px; */
+/*     color: #fff883; */
+/* } */
+
+/* #power-options { */
+/*     margin-top: 0px; */
+/* } */
+
+#left_drawer,
+#right_drawer {
     margin: 4px;
     background:  rgba(140,54,0,0.5) ;
     border-radius: 10px;
@@ -238,6 +260,11 @@ window#waybar.chromium {
     /* 35% { */
     /*     background-image: linear-gradient(#8c3600,#8c3600); */
     /* } */
+}
+@keyframes dot_solid {
+    to {
+        border: 2px dotted  #d26e0a;
+    }
 }
 @keyframes melt {
     30% {
@@ -454,6 +481,104 @@ label:focus {
     background-color: #1ca000;
 }
 
-#privacy-item.audio-out {
-    background-color: #0069d4;
+
+
+
+/*
+ *Sidebar
+ */
+
+window#waybar.sidebar_Godlynux {
+    /* background:  rgba(60,24,0,0.8) ; */
+    background: #632600;
+    /* background-image: linear-gradient(135deg,#8c3600,#632600); */
+    border-radius: 10px;
+    border-right: 0px solid #8c3600;
+    /* border-radius: 0px 8px 8px 0px; */
+}
+/*  Wofi button */
+#custom-terminal,
+#custom-menu {
+    color: #cccccc;
+    margin: 4px;
+    padding: 8px 0px 8px 2px;
+    font-size: 25px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0);
+    /* font-weight: bold; */
+}
+
+/* centrail app groups */
+#communications,
+#paints,
+#browsers {
+    margin: 4px;
+    border-radius: 10px;
+    background: rgba(140,54,0,0.5);
+    color: #cccccc;
+}
+#custom-communication,
+#custom-paint,
+#custom-browser {
+    color: #cccccc;
+    border-radius: 10px;
+    background: #632600;
+    font-size: 25px;
+    padding: 8px 0px 8px 6px;
+}
+#custom-paint { /* icon looks too small */
+    font-size: 21px;
+    padding: 10px 0px 10px 2px;
+}
+#custom-terminal:hover,
+#custom-communication:hover,
+#custom-menu:hover,
+#custom-paint:hover,
+#custom-browser:hover {
+    border-radius: 10px;
+    animation-name: focus;
+    animation-duration: 0.3s;
+    animation-timing-function: steps(40);
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+    background: rgba(140,54,0,1);
+}
+#custom-discord:hover,
+#custom-gimp:hover,
+#custom-betterbird:hover,
+#custom-firefox:hover,
+#custom-zen:hover {
+    border-radius: 10px;
+    animation-name: inner_focus;
+    animation-duration: 0.3s;
+    animation-timing-function: steps(40);
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+    background: rgba(140,54,0,1);
+}
+#custom-discord,
+#custom-gimp,
+#custom-firefox,
+#custom-zen {
+    font-size: 25px;
+    padding: 8px 0px 8px 6px;
+}
+#custom-betterbird {
+    font-size: 23px;
+    padding: 10px 0px 10px 2px;
+}
+#custom-discord {
+    padding: 8px 0px 8px 1px;
+}
+
+/* Animations */
+@keyframes focus {
+    to {
+        background: #632600;
+    }
+}
+@keyframes inner_focus {
+    to {
+        background: rgba(140,54,0,0.5);
+    }
 }

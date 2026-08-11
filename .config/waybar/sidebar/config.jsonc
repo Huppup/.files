@@ -1,0 +1,52 @@
+// -*- mode: jsonc -*-
+{
+    "name": "sidebar_Godlynux",
+    "layer": "top", // Waybar at top layer
+    "position": "left", // Waybar position (top|bottom|left|right)
+    "height": 800, // Waybar height (to be removed for auto height)
+    "width": 50,  // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+    ],
+    // Modules configuration
+    //Central decoration with the arch logo. Button that hides and unhides waybar
+    "group/left_drawer": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "left_drawer_cabinet",
+            "transition-left-to-right": true,
+            "click-to-reveal": true,
+        },
+        "modules": [
+            "clock", // First element is the "group leader" and won't ever be hidden
+            // "clock#calendar",
+            "pulseaudio",
+            "backlight",
+            "backlight/slider",
+        ]
+    },
+    "group/right_drawer": {
+       "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "right_drawer_cabinet",
+            "transition-left-to-right": false,
+            "click-to-reveal": true,
+        },
+        "modules": [
+            "battery", // First element is the "group leader" and won't ever be hidden
+            "network",
+            "cpu",
+            "temperature",
+        ] 
+    },
+    "custom/menu": {
+        "format": "󰍜"
+    }
+}

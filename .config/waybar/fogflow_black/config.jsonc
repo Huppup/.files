@@ -3,7 +3,7 @@
     "name": "topbar_Godlynux",
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 20, // Waybar height (to be removed for auto height)
+    "height": 65, //delete for "auto"
     "width": 1220, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     "align": "right",
@@ -78,7 +78,7 @@
     "custom/arch-arch": {
         "format": "󰣇 ",
         "tooltip": false, 
-        "on-click": "hyprlock"
+        "on-click": "hyprlock",
     },
     "hyprland/workspaces": {
         "disable-scroll": true,
